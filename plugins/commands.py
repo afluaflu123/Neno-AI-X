@@ -11,6 +11,7 @@ from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, MSG_ALRT, MAIN_CHANNEL, S_GROUP
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
+from plugins.fsub import ForceSub
 import re
 import json
 import base64
@@ -21,13 +22,14 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        buttons = [[
-                InlineKeyboardButton('⚜️ Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL),
-                InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-            ],[        
-                InlineKeyboardButton('⚙️ Hᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help"),
-                InlineKeyboardButton('🔐 Cʟᴏsᴇ', callback_data="close_data"),            
-            ]]
+        buttons = [
+            [
+                InlineKeyboardButton('🤖 Updates', url=(MAIN_CHANNEL))
+            ],
+            [
+                InlineKeyboardButton('ʜᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help"),
+            ]
+            ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
@@ -41,17 +43,19 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('➕ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('🔍 Sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
-                    InlineKeyboardButton('🤖 Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info")                                                             
-                ],[                    
-                    InlineKeyboardButton('🧿 Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('😎 Aʙᴏᴜᴛ', callback_data='about')                                                      
-                  ]]                                        
+            InlineKeyboardButton('⚚ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            ],[
+            InlineKeyboardButton('💫 ᴄʀᴇᴅɪᴛs 💫', callback_data="credit_info"),
+            InlineKeyboardButton('🔱 ᴏᴡɴᴇʀ 🔱', callback_data="owner_info")
+            ],[      
+            InlineKeyboardButton('⚠️ ʜᴇʟᴘ ⚠️ ', callback_data='help2'),
+            InlineKeyboardButton('✨ ᴀʙᴏᴜᴛ ✨', callback_data='about')
+            ],[
+            InlineKeyboardButton('🥇 sᴜᴘᴘᴏʀᴛ 🥇', callback_data="group_info")
+        ]]         
         reply_markup = InlineKeyboardMarkup(buttons)
-        m=await message.reply_sticker("CAACAgUAAxkBAAINdmL9uWnC3ptj9YnTjFU4YGr5dtzwAAIEAAPBJDExieUdbguzyBAeBA")
-        await asyncio.sleep(2)
+        m=await message.reply_sticker("CAACAgUAAxkBAAEOZdNj2S9tlg8fCuHg5gJ_MLJj3A3GXwACGAcAAimzaVe-HiqPelAOoB4E") 
+        await asyncio.sleep(3)
         await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -60,44 +64,21 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-    if AUTH_CHANNEL and not await is_subscribed(client, message):
-        try:
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
-        except ChatAdminRequired:
-            logger.error("Make sure Bot is admin in Forcesub channel")
+    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help", "start", "hehe"]:
+        if message.command[1] == "subscribe":
+            await ForceSub(client, message)
             return
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "❆ Jᴏɪɴ Oᴜʀ Bᴀᴄᴋ-Uᴘ Cʜᴀɴɴᴇʟ ❆", url=invite_link.invite_link
-                )
-            ]
-        ]
-
-        if message.command[1] != "subscribe":
-            try:
-                kk, file_id = message.command[1].split("_", 1)
-                pre = 'checksubp' if kk == 'filep' else 'checksub' 
-                btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"{pre}#{file_id}")])
-            except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
-        await client.send_message(
-            chat_id=message.from_user.id,
-            text="**You are not in our Back-up channel given below so you don't get the movie file...\n\nIf you want the movie file, click on the '🍿ᴊᴏɪɴ ᴏᴜʀ ʙᴀᴄᴋ-ᴜᴘ ᴄʜᴀɴɴᴇʟ🍿' button below and join our back-up channel, then click on the '🔄 Try Again' button below...\n\nThen you will get the movie files...**",
-            reply_markup=InlineKeyboardMarkup(btn),
-            parse_mode=enums.ParseMode.MARKDOWN
-            )
-        return
-    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-                    InlineKeyboardButton('➕ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('🔍 Sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
-                    InlineKeyboardButton('🤖 Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info")                                                             
-                ],[                    
-                    InlineKeyboardButton('🧿 Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('😎 Aʙᴏᴜᴛ', callback_data='about')                                                      
-                  ]]         
+            InlineKeyboardButton('⚚ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            ],[
+            InlineKeyboardButton('💫 ᴄʀᴇᴅɪᴛs 💫', callback_data="credit_info"),
+            InlineKeyboardButton('🔱 ᴏᴡɴᴇʀ 🔱', callback_data="owner_info")
+            ],[      
+            InlineKeyboardButton('⚠️ ʜᴇʟᴘ ⚠️', callback_data='help2'),
+            InlineKeyboardButton('✨ ᴀʙᴏᴜᴛ ✨', callback_data='about')
+            ],[
+            InlineKeyboardButton('🥇 sᴜᴘᴘᴏʀᴛ 🥇', callback_data="group_info")
+        ]]         
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -105,6 +86,12 @@ async def start(client, message):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+        return
+    kk, file_id = message.command[1].split("_", 1) if "_" in message.command[1] else (False, False)
+    pre = ('checksubp' if kk == 'filep' else 'checksub') if kk else False
+
+    status = await ForceSub(client, message, file_id=file_id, mode=pre)
+    if not status:
         return
     data = message.command[1]
     try:
