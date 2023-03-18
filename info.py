@@ -50,13 +50,14 @@ BOT_TOKEN = environ.get('BOT_TOKEN', 'None')
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 PICS = (environ.get('PICS', 'https://telegra.ph/file/ac5042aa8aaddea9309a5.jpg')).split()
-NOR_IMG = environ.get('NOR_IMG', "https://telegra.ph/file/4de5cd7a8115514c4edce.jpg")
-SPELL_IMG = environ.get('SPELL_IMG',"https://telegra.ph/file/2581860836bb79b97d6d1.jpg")
+NOR_IMG = environ.get('NOR_IMG', "https://telegra.ph/file/e0d96d26b76654a7a9f4c.jpg")
+SPELL_IMG = environ.get('SPELL_IMG',"https://te.legra.ph/file/e5fd8c6bc6580bea9fa28.jpg")
 
 # Welcome area
 MELCOW_IMG = environ.get('MELCOW_IMG',"https://telegra.ph/file/4cd231fbe9085ec49e75d.jpg")
 MELCOW_VID = environ.get('MELCOW_VID',"https://telegra.ph/file/b26637d70f3630a7e0fa1.mp4")
-TEXT = environ.get("APPROVED_WELCOME_TEXT", "<b>Hello 👋 {mention}\n\nYour Request To Join {title} Was Approved 🔥.</b>\n\n<b>•➤ JOIN:- @Team_KL -|- @KL_GROUP1</b>")
+
+
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', 'None').split()]
@@ -85,16 +86,16 @@ DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 PORT = os.environ.get("PORT", "8080")
 MAX_BTN = int(environ.get('MAX_BTN', "10"))
-S_GROUP = environ.get('S_GROUP',"https://t.me/kl_Group1")
-MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/+WYy-MPB0gC5kNGM1")
-FILE_FORWARD = environ.get('FILE_FORWARD',"https://t.me/+WYy-MPB0gC5kNGM1")
-MSG_ALRT = environ.get('MSG_ALRT', '🤭🤗')
+S_GROUP = environ.get('S_GROUP',"https://t.me/Cinemathattakam_Group")
+MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/CT_Arena")
+FILE_FORWARD = environ.get('FILE_FORWARD',"https://t.me/+MUGQPbQKXAU0OTM1")
+MSG_ALRT = environ.get('MSG_ALRT', '𝐓𝐡𝐚𝐧𝐤 𝐲𝐨𝐮 𝐃𝐫 സാത്താൻ 𝐒𝐢𝐫 💜')
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 'None'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'CT_Arena')
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
-IMDB = is_enabled((environ.get('IMDB', "True")), True)
+IMDB = is_enabled((environ.get('IMDB', "False")), False)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CUSTOM_FILE_CAPTION}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
