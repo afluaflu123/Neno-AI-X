@@ -94,11 +94,8 @@ async def start(client, message):
     if not status:
         return
     data = message.command[1]
-    try:
-        pre, file_id = data.split('_', 1)
-    except:
+    if not file_id:
         file_id = data
-        pre = ""
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("Please wait")
         file_id = data.split("-", 1)[1]
@@ -131,17 +128,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-                          InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
-                       ],[
-                          InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
-                         ]
-                        ]
                     )
-                )                    
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -150,17 +137,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-                          InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
-                       ],[
-                          InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
-                         ]
-                        ]
                     )
-                )
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
@@ -221,17 +198,7 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                     [
-                      InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-                      InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
-                   ],[
-                      InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
-                     ]
-                    ]
                 )
-            )
             filetype = msg.media
             file = getattr(msg, filetype)
             title = file.file_name
@@ -262,19 +229,10 @@ async def start(client, message):
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
-        caption=f_caption,       
+        caption=f_caption,
+        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
         protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup(
-            [
-             [
-              InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-              InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
-           ],[
-              InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
-             ]
-            ]
-        )
-    )                           
+        )                           
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
