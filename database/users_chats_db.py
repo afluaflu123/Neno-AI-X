@@ -116,6 +116,7 @@ class Database:
             'spell_check': SPELL_CHECK_REPLY,
             'welcome': MELCOW_NEW_USERS,
             'auto_delete': AUTO_DELETE,
+            'auto_ffilter': AUTO_FFILTER,
             'template': IMDB_TEMPLATE
         }
         chat = await self.grp.find_one({'id':int(id)})
