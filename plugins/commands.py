@@ -31,10 +31,8 @@ async def start(client, message):
                 InlineKeyboardButton('🔐 Cʟᴏsᴇ', callback_data="close_data"),            
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        kd = await client.send_sticker(
-        sticker="CAACAgUAAxkBAAEB97RkMeBS1dqA31dv-8edut-HwBHWsAAC_QgAAjEskVWZZJZNPXLkRR4E",
-        caption=message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME, reply_markup=reply_markup)
-        await asyncio.sleep(20)
+        kd = await client.send_sticker(chat_id=message.chat.id, sticker="CAACAgUAAxkBAAEB97RkMeBS1dqA31dv-8edut-HwBHWsAAC_QgAAjEskVWZZJZNPXLkRR4E", reply_markup=reply_markup)
+        await asyncio.sleep(10)
         await kd.delete()
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
