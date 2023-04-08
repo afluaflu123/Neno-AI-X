@@ -31,7 +31,7 @@ async def start(client, message):
                 InlineKeyboardButton('🔐 Cʟᴏsᴇ', callback_data="close_data"),            
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        kd = await message.send_sticker(
+        kd = await client.send_sticker(
         sticker="CAACAgUAAxkBAAEB97RkMeBS1dqA31dv-8edut-HwBHWsAAC_QgAAjEskVWZZJZNPXLkRR4E",
         caption=script.STARTER_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(20)
