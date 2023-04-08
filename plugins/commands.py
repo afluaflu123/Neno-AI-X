@@ -22,17 +22,19 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        buttons = [
-            [
-                InlineKeyboardButton('⚜️ Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL),
-                InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-            ],[        
-                InlineKeyboardButton('⚙️ Hᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help"),
-                InlineKeyboardButton('🔐 Cʟᴏsᴇ', callback_data="close_data"),            
-            ]]
+        buttons = [[
+                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                  ],[
+                    InlineKeyboardButton('Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL),
+                    InlineKeyboardButton('Gʀᴏᴜᴘ', url=S_GROUP)
+                  ],[
+                    InlineKeyboardButton('○ Cʜᴇᴄᴋ Pᴍ ○', url='http://t.me/Oru_adaar_Robot')                    
+                  ]]                   
         reply_markup = InlineKeyboardMarkup(buttons)
-        kd = await client.send_sticker(chat_id=message.chat.id, sticker="CAACAgUAAxkBAAEB97RkMeBS1dqA31dv-8edut-HwBHWsAAC_QgAAjEskVWZZJZNPXLkRR4E", reply_markup=reply_markup)
-        await asyncio.sleep(10)
+        kd = await message.reply_photo(
+        photo=random.choice(PICS),
+        caption=script.STARTER_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
+        await asyncio.sleep(20)
         await kd.delete()
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
