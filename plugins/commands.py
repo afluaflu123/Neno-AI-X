@@ -33,7 +33,7 @@ async def start(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         kd = await client.send_sticker(
         sticker="CAACAgUAAxkBAAEB97RkMeBS1dqA31dv-8edut-HwBHWsAAC_QgAAjEskVWZZJZNPXLkRR4E",
-        caption=script.STARTER_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
+        caption=message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME, reply_markup=reply_markup)
         await asyncio.sleep(20)
         await kd.delete()
         if not await db.get_chat(message.chat.id):
