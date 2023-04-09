@@ -5,6 +5,8 @@ import ast
 import math
 import random
 import datetime
+lock = asyncio.Lock()
+
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 import pyrogram
