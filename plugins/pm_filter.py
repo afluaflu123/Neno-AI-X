@@ -520,44 +520,46 @@ async def cb_handler(client: Client, query: CallbackQuery):
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            protect_content=True if ident == 'checksubp' else False
+            protect_content=True if ident == 'checksubp' else False,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                  InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
+                  InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+               ],[
+                  InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/creatorbeatz")
+                 ]
+                ]
+            )      
         )
-    elif query.data == "predvd":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting PreDVDs... Please wait...</b>")
-        files, next_offset, total = await get_bad_files(
-                                                  'predvd',
-                                                  offset=0)
-        deleted = 0
-        for file in files:
-            file_ids = file.file_id
-            result = await Media.collection.delete_one({
-                '_id': file_ids,
-            })
-            if result.deleted_count:
-                logger.info('PreDVD File Found ! Successfully deleted from database.')
-            deleted+=1
-        deleted = str(deleted)
-        await k.edit_text(text=f"<b>Successfully deleted {deleted} PreDVD files.</b>")
-
-    elif query.data == "camrip":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting CamRips... Please wait...</b>")
-        files, next_offset, total = await get_bad_files(
-                                                  'camrip',
-                                                  offset=0)
-        deleted = 0
-        for file in files:
-            file_ids = file.file_id
-            result = await Media.collection.delete_one({
-                '_id': file_ids,
-            })
-            if result.deleted_count:
-                logger.info('CamRip File Found ! Successfully deleted from database.')
-            deleted+=1
-        deleted = str(deleted)
-        await k.edit_text(text=f"<b>Successfully deleted {deleted} CamRip files.</b>")
-
     elif query.data == "pages":
         await query.answer()
+
+    elif query.data.startswith("killfilesdq"):
+        ident, keyword = query.data.split("#")
+        await query.message.edit_text(f"<b>Fetching Files for your query {keyword} on DB... Please wait...</b>")
+        files, total = await get_bad_files(keyword)
+        await query.message.edit_text(f"<b>Found {total} files for your query {keyword} !\n\nFile deletion process will start in 5 seconds !</b>")
+        await asyncio.sleep(5)
+        deleted = 0
+        async with lock:
+            try:
+                for file in files:
+                    file_ids = file.file_id
+                    file_name = file.file_name
+                    result = await Media.collection.delete_one({
+                        '_id': file_ids,
+                    })
+                    if result.deleted_count:
+                        logger.info(f'File Found for your query {keyword}! Successfully deleted {file_name} from database.')
+                    deleted += 1
+                    if deleted % 20 == 0:
+                        await query.message.edit_text(f"<b>Process started for deleting files from DB. Successfully deleted {str(deleted)} files from DB for your query {keyword} !\n\nPlease wait...</b>")
+            except Exception as e:
+                logger.exception(e)
+                await query.message.edit_text(f'Error: {e}')
+            else:
+                await query.message.edit_text(f"<b>Process Completed for file deletion !\n\nSuccessfully deleted {str(deleted)} files from database for your query {keyword}.</b>")
 
     elif query.data == "reqinfo":
         await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n©Cinemathattakam_Group", show_alert=True)
