@@ -156,7 +156,8 @@ async def next_page(bot, query):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
+            InlineKeyboardButton(f'🎀 {search}', 'qinfo'),
+            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "qinfo")
         ]
     )
     btn.insert(1, 
@@ -1149,7 +1150,8 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
+            InlineKeyboardButton(f'🎀 {search}', 'qinfo'),
+            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "qinfo")
         ]
     )
     btn.insert(1, 
@@ -1208,7 +1210,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>🎪 Tɪᴛɪʟᴇ {search}\n\n┏ 🎭 Asᴋᴇᴅʙʏ : {message.from_user.mention}\n┣❤️‍🔥 Pᴏᴡᴇʀᴇᴅ ʙʏ : <a href='https://t.me/{temp.U_NAME}'>Mᴀsᴛᴇʀ​</a>\n┗🍁 Tᴏᴛᴀʟ Fɪʟᴇs : {len(files)}\n\n⚠️ Aꜰᴛᴇʀ 10 Mɪɴᴜᴛᴇꜱ Tʜɪꜱ Mᴇꜱꜱᴀɢᴇ Wɪʟʟ Bᴇ Aᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ Dᴇʟᴇᴛᴇᴅ\n\n♦️ Pᴏᴡᴇʀᴇᴅ ʙʏ : {message.chat.title}</b>"
+        cap = f"<b>┏ 🔰 Tɪᴛɪʟᴇ : {search}\n┣ 🎭 Asᴋᴇᴅʙʏ : {message.from_user.mention}\n┣❤️‍🔥 Pᴏᴡᴇʀᴇᴅ ʙʏ : <a href='https://t.me/{temp.U_NAME}'>Mᴀsᴛᴇʀ​</a>\n┗🍁 Tᴏᴛᴀʟ Fɪʟᴇs : {len(files)}\n\n⚠️ Aꜰᴛᴇʀ 10 Mɪɴᴜᴛᴇꜱ Tʜɪꜱ Mᴇꜱꜱᴀɢᴇ Wɪʟʟ Bᴇ Aᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ Dᴇʟᴇᴛᴇᴅ\n\n♦️ Pᴏᴡᴇʀᴇᴅ ʙʏ : {message.chat.title}</b>"
     if imdb and imdb.get('poster'):
         try:
             pic_fi=await message.reply_photo(photo="https://telegra.ph/file/a35355b224548e197f989.jpg", caption=cap[:1024],
