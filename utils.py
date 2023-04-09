@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, ADMINS, REQ_CHANNEL, GRP_LNK, CHNL_LNK, CUSTOM_FILE_CAPTION
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, ADMINS, REQ_CHANNEL, S_GROUP, MAIN_CHANNEL, CUSTOM_FILE_CAPTION
 from database.join_reqs import JoinReqs as db2
 from imdb import Cinemagoer
 import asyncio
@@ -472,8 +472,8 @@ async def send_all(bot, userid, files, ident):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                    InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=GRP_LNK),
-                    InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                    InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
+                    InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
                 ],[
                     InlineKeyboardButton("⚠️ Dᴇʟᴇᴛᴇ Tᴏ Fɪʟᴇs ⚠️", callback_data="close_data") 
                     ]
