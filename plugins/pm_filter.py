@@ -169,16 +169,16 @@ async def next_page(bot, query):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'🎀 {search}', 'qinfo'),
-            InlineKeyboardButton("🗂️ sᴇɴᴅ ᴀʟʟ", callback_data=f"send_fall#files#{key}#{offset}")
+            InlineKeyboardButton(f"🎀 {search}", "dupe"),
+            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "dupe")       
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
-             InlineKeyboardButton(f'🔰 sᴇʀɪᴇs', 'sinfo'),
-             InlineKeyboardButton(f'🎁 ᴛɪᴘs', 'tinfo')
+             InlineKeyboardButton(f'ɪɴꜰᴏ', 'reqinfo'),
+             InlineKeyboardButton(f'ᴍᴏᴠɪᴇ', 'minfo'),
+             InlineKeyboardButton(f'sᴇʀɪᴇs', 'sinfo'),
+             InlineKeyboardButton(f'ᴛɪᴘs', 'tinfo')
          ]
     )
 
@@ -1177,16 +1177,16 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'🎀 {search}', 'qinfo'),
-            InlineKeyboardButton("🗂️ sᴇɴᴅ ᴀʟʟ", callback_data=f"send_fall#files#{key}#{offset}")
+            InlineKeyboardButton(f"🎀 {search}", "dupe"),
+            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "dupe")       
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
-             InlineKeyboardButton(f'🔰 sᴇʀɪᴇs', 'sinfo'),
-             InlineKeyboardButton(f'🎁 ᴛɪᴘs', 'tinfo')
+             InlineKeyboardButton(f'Iɴꜰᴏ', 'reqinfo'),
+             InlineKeyboardButton(f'Mᴏᴠɪᴇ', 'minfo'),
+             InlineKeyboardButton(f'Sᴇʀɪᴇs', 'sinfo'),
+             InlineKeyboardButton(f'Tɪᴘs', 'tinfo')
          ]
     )
 
