@@ -298,14 +298,13 @@ Name - {}
 ᴍʏ ɴᴀᴍᴇ ɪꜱ <a href=https://t.me/{}>{}</a>, ɪ ᴀᴍ ᴀ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ + ᴍᴀɴᴜᴀʟ ꜰɪʟᴛᴇʀ + ꜰɪʟᴇ sᴛᴏʀᴇ ʙᴏᴛ. ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs & sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ ᴀʟsᴏ ! ᴀʟsᴏ ɪ ᴄᴀɴ sᴛᴏʀᴇ ꜰɪʟᴇs. 💜</b>"""
 
     IMDB_TEMPLATE_TXT = """
-<b>📺 TɪᴛLᴇ : {title}
-📆 YᴇAʀ : {release_date}
-🎙 LᴀNɢUᴀGᴇ : {languages}
-⭐ RᴀTɪNɢ : {rating} / 10.0
-🎭 GᴇNʀEs : {genres}
-⏱️ RᴜɴTɪᴍE : {runtime}minutes
-💽 QᴜAʟIᴛY : HDRip,WEB-DL
-🔰 GʀOᴜP : {message.chat.title}</b>"""
+<b>⍞ TɪᴛLᴇ : {title}
+⌬ YᴇAʀ : {release_date}
+⎙ LᴀNɢUᴀGᴇ : {languages}
+★ RᴀTɪNɢ : {rating} / 10.0
+⌗ GᴇNʀEs : {genres}
+✵ QᴜAʟIᴛY : HDRip,WEB-DL
+〄 GʀOᴜP : {message.chat.title}</b>"""
 
     CUSTOM_FILE_CAPTION = """<b>📂 Fɪʟᴇ Nᴀᴍᴇ :- <code>{file_name}</code>
 
