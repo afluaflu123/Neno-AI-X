@@ -60,7 +60,7 @@ async def fil_mod(client, message):
       else:
           await m.edit("𝚄𝚂𝙴 :- /autofilter on 𝙾𝚁 /autofilter off")
 
-@Client.on_message(filters.group | filters.private) 
+@Client.on_message(filters.group & filters.text & filters.incoming)) 
 async def give_filter(client,message):
     await global_filters(client, message)
     group_id = message.chat.id
@@ -109,6 +109,20 @@ async def give_filter(client,message):
         else:
             await auto_filter(client, message)
 
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def pm_text(bot, message):
+    content = message.text
+    user = message.from_user.first_name
+    user_id = message.from_user.id
+    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
+    if user_id in ADMINS: return # ignore admins
+    await message.reply_text(
+         text="<b>ʜᴇʏ ᴅᴜᴅᴇ 😍 ,\n\nʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴍᴏᴠɪᴇs ꜰʀᴏᴍ ʜᴇʀᴇ. ʀᴇǫᴜᴇsᴛ ᴏɴ ᴏᴜʀ <a href=https://t.me/KL_Group1>ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ</a> ᴏʀ ᴄʟɪᴄᴋ ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ​👇</b>",   
+         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ​ ", url=f"https://t.me/KL_Group1")]]))
+    await bot.send_message(
+        chat_id=LOG_CHANNEL,
+        text=f"<b>👻 𝐏𝐌_𝐌𝐒𝐆 👻\n\n📝ᴍᴇssᴀɢᴇ​:-{content}\n\n👶🏻ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ:-{user}\n\n🃏ᴜꜱᴇʀ ɪᴅ:-{user_id}</b>"
+    )
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -1009,15 +1023,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "group_info":
         buttons = [[
-            InlineKeyboardButton("Bᴏᴛ Dᴀᴛᴀʙᴀꜱᴇ", url="t.me/cinemathattakam_group")
+            InlineKeyboardButton("• ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ •", url="t.me/team_kl")
                   ],[
-            InlineKeyboardButton("Gʀᴏᴜᴘ", url="t.me/cinemathattakam_group"),
-            InlineKeyboardButton("​Cʜᴀɴɴᴇʟ", url="t.me/ct_arena")
+            InlineKeyboardButton("• ɢʀᴏᴜᴘ 1 •", url="t.me/KL_GROUP1"),
+            InlineKeyboardButton("• ɢʀᴏᴜᴘ 2 •", url="t.me/+vDXm_UHP_7JkYTVl")
                   ],[
-            InlineKeyboardButton("Sᴜᴘᴘᴏʀᴛ", url="t.me/cinemathattakam_group"),
-            InlineKeyboardButton("Uᴘᴅᴀᴛᴇꜱ", url="t.me/ct_up_datess")
+            InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟ •", url="t.me/+1WmzwCkH1m4zYTk1"),
+            InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟ •", url="t.me/+arAi7vU2iOc5ZTg1")
                   ],[
-            InlineKeyboardButton("⇍Bᴀᴄᴋ", callback_data="start")
+            InlineKeyboardButton("⇍ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇏", callback_data="start")
         ]]   
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1049,13 +1063,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit_text(
-            text="sᴇᴀʀᴄʜɪɴɢ....  ▬▬ ▭▭ 50/100%"
+            text="sᴇᴀʀᴄʜɪɴɢ.... ✪ ⍟ ⍟"
         )
         await query.message.edit_text(
-            text="sᴇᴀʀᴄʜɪɴɢ....  ▬▬ ▬▭ 90/100%"
+            text="sᴇᴀʀᴄʜɪɴɢ.... ✪ ✪ ⍟"
         )
         await query.message.edit_text(
-            text="sᴇᴀʀᴄʜɪɴɢ....  ▬▬ ▬▬ 100/100%"
+            text="sᴇᴀʀᴄʜɪɴɢ.... ✪ ✪ ✪"
+        )
+        await query.message.edit_text(
+            text="sᴇᴀʀᴄʜɪɴɢ sᴜᴄᴄᴇssꜰᴜʟ...."
         )
         await query.message.edit_text(
             text=script.STATUS_TXT.format(total, users, chats, monsize, free),
@@ -1263,7 +1280,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅʙʏ : {message.from_user.mention}\n┣⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href='https://t.me/{temp.U_NAME}'>ᴍᴀsᴛᴇʀ​</a>\n┗🍁 ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/'>ᴄinemathattakam​</a>\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\n★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : {message.chat.title}"
+        cap = f"┏⍞ Tɪᴛɪʟᴇ :{search}\n┣❐  Rᴇǫᴜᴇsᴛᴇᴅ Bʏ : {message.from_user.mention}\n┣⎙ Fɪʟᴇs : {total_results}\n┗〄 Gʀᴏᴜᴘ :  {message.chat.title}\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ."
     if imdb and imdb.get('poster'):
         try:
             pic_fi=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
