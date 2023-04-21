@@ -84,6 +84,7 @@ DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 # Others
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 PORT = os.environ.get("PORT", "8080")
+NO_RESULTS_MSG = bool(environ.get('NO_RESULTS_MSG', False))
 MAX_BTN = int(environ.get('MAX_BTN', "7"))
 S_GROUP = environ.get('S_GROUP',"https://t.me/kl_Group1")
 MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/Team_KL")
