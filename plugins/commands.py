@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, MSG_ALRT, MAIN_CHANNEL
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, MSG_ALRT, MAIN_CHANNEL, S_GROUP
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 from plugins.fsub import ForceSub
@@ -131,7 +131,17 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                         [
+                          InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
+                          InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+                       ],[
+                          InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
+                         ]
+                        ]
                     )
+                )                    
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -140,7 +150,17 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                         [
+                          InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
+                          InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+                       ],[
+                          InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
+                         ]
+                        ]
                     )
+                )
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
@@ -201,7 +221,17 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                     [
+                      InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
+                      InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+                   ],[
+                      InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
+                     ]
+                    ]
                 )
+            )
             filetype = msg.media
             file = getattr(msg, filetype)
             title = file.file_name
@@ -233,10 +263,18 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
         protect_content=True if pre == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup(
+            [
+             [
+              InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
+              InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+           ],[
+              InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
+             ]
+            ]
         )
-                    
+    )                          
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
