@@ -527,23 +527,11 @@ async def save_template(client, message):
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
 
-@Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
-async def deletemultiplefiles(bot, message):
-    btn = [[
-            InlineKeyboardButton("Delete PreDVDs", callback_data="predvd"),
-            InlineKeyboardButton("Delete CamRips", callback_data="camrip")
-          ]]
-    await message.reply_text(
-        text="<b>Select the type of files you want to delete !\n\nThis will delete 100 files from the database for the selected type.</b>",
-        reply_markup=InlineKeyboardMarkup(btn)
-    )
-
-
 @Client.on_message(filters.command("send") & filters.user(ADMINS))
 async def send_msg(bot, message):
     if message.reply_to_message:
         target_id = message.text.split(" ", 1)[1]
-        out = "Users Saved In DB Are:\n\n"
+        out = "Usᴇʀs Sᴀᴠᴇᴅ Iɴ DB Aʀᴇ:\n\n"
         success = False
         try:
             user = await bot.get_users(target_id)
@@ -557,10 +545,32 @@ async def send_msg(bot, message):
             else:
                 success = False
             if success:
-                await message.reply_text(f"<b>Your message has been successfully send to {user.mention}.</b>")
+                await message.reply_text(f"<b>Yᴏᴜʀ ᴍᴇssᴀɢᴇ ʜᴀs ʙᴇᴇɴ sᴜᴄᴄᴇssғᴜʟʟʏ sᴇɴᴅ ᴛᴏ {user.mention}.</b>")
             else:
-                await message.reply_text("<b>This user didn't started this bot yet !</b>")
+                await message.reply_text("<b>Tʜɪs ᴜsᴇʀ ᴅɪᴅɴ'ᴛ sᴛᴀʀᴛᴇᴅ ᴛʜɪs ʙᴏᴛ ʏᴇᴛ!</b>")
         except Exception as e:
-            await message.reply_text(f"<b>Error: {e}</b>")
+            await message.reply_text(f"<b>Eʀʀᴏʀ: {e}</b>")
     else:
-        await message.reply_text("<b>Use this command as a reply to any message using the target chat id. For eg: /send userid</b>")
+        await message.reply_text("<b>Usᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴍᴇssᴀɢᴇ ᴜsɪɴɢ ᴛʜᴇ ᴛᴀʀɢᴇᴛ ᴄʜᴀᴛ ɪᴅ. Fᴏʀ ᴇɢ: /send ᴜsᴇʀɪᴅ</b>")
+
+@Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
+async def deletemultiplefiles(bot, message):
+    chat_type = message.chat.type
+    if chat_type != enums.ChatType.PRIVATE:
+        return await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, Tʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴡᴏɴ'ᴛ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘs. Iᴛ ᴏɴʟʏ ᴡᴏʀᴋs ᴏɴ ᴍʏ PM!</b>")
+    else:
+        pass
+    try:
+        keyword = message.text.split(" ", 1)[1]
+    except:
+        return await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, Gɪᴠᴇ ᴍᴇ ᴀ ᴋᴇʏᴡᴏʀᴅ ᴀʟᴏɴɢ ᴡɪᴛʜ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴅᴇʟᴇᴛᴇ ғɪʟᴇs.</b>")
+    btn = [[
+       InlineKeyboardButton("Yᴇs, Cᴏɴᴛɪɴᴜᴇ !", callback_data=f"killfilesdq#{keyword}")
+       ],[
+       InlineKeyboardButton("Nᴏ, Aʙᴏʀᴛ ᴏᴘᴇʀᴀᴛɪᴏɴ !", callback_data="close_data")
+    ]]
+    await message.reply_text(
+        text="<b>Aʀᴇ ʏᴏᴜ sᴜʀᴇ? Dᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ?\n\nNᴏᴛᴇ:- Tʜɪs ᴄᴏᴜʟᴅ ʙᴇ ᴀ ᴅᴇsᴛʀᴜᴄᴛɪᴠᴇ ᴀᴄᴛɪᴏɴ!</b>",
+        reply_markup=InlineKeyboardMarkup(btn),
+        parse_mode=enums.ParseMode.HTML
+    )
