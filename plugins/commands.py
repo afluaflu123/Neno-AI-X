@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, MSG_ALRT, MAIN_CHANNEL, S_GROUP
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, MSG_ALRT, MAIN_CHANNEL
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 from plugins.fsub import ForceSub
@@ -22,20 +22,17 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                  ],[
-                    InlineKeyboardButton('Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL),
-                    InlineKeyboardButton('Gʀᴏᴜᴘ', url=S_GROUP)
-                  ],[
-                    InlineKeyboardButton('○ Cʜᴇᴄᴋ Pᴍ ○', url='http://t.me/Oru_adaar_Robot')                    
-                  ]]                   
+        buttons = [
+            [
+                InlineKeyboardButton('🤖 Updates', url=(MAIN_CHANNEL))
+            ],
+            [
+                InlineKeyboardButton('ʜᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help"),
+            ]
+            ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        kd = await message.reply_photo(
-        photo=random.choice(PICS),
-        caption=script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
-        await asyncio.sleep(20)
-        await kd.delete()
+        await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
+        await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
             await client.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(a=message.chat.title, b=message.chat.id, c=message.chat.username, d=total, f=temp.B_LINK, e="Unknown"))       
@@ -273,7 +270,7 @@ async def channel_info(bot, message):
 async def log_file(bot, message):
     """Send log file"""
     try:
-        await message.reply_document('Logs.txt')
+        await message.reply_document('TelegramBot.log')
     except Exception as e:
         await message.reply(str(e))
 
@@ -532,25 +529,15 @@ async def save_template(client, message):
 
 @Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
 async def deletemultiplefiles(bot, message):
-    chat_type = message.chat.type
-    if chat_type != enums.ChatType.PRIVATE:
-        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command won't work in groups. It only works on my PM !</b>")
-    else:
-        pass
-    try:
-        keyword = message.text.split(" ", 1)[1]
-    except:
-        return await message.reply_text(f"<b>Hey {message.from_user.mention}, Give me a keyword along with the command to delete files.</b>")
     btn = [[
-       InlineKeyboardButton("Yes, Continue !", callback_data=f"killfilesdq#{keyword}")
-       ],[
-       InlineKeyboardButton("No, Abort operation !", callback_data="close_data")
-    ]]
+            InlineKeyboardButton("Delete PreDVDs", callback_data="predvd"),
+            InlineKeyboardButton("Delete CamRips", callback_data="camrip")
+          ]]
     await message.reply_text(
-        text="<b>Are you sure? Do you want to continue?\n\nNote:- This could be a destructive action !</b>",
-        reply_markup=InlineKeyboardMarkup(btn),
-        parse_mode=enums.ParseMode.HTML
+        text="<b>Select the type of files you want to delete !\n\nThis will delete 100 files from the database for the selected type.</b>",
+        reply_markup=InlineKeyboardMarkup(btn)
     )
+
 
 @Client.on_message(filters.command("send") & filters.user(ADMINS))
 async def send_msg(bot, message):
