@@ -157,15 +157,16 @@ async def next_page(bot, query):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
+            InlineKeyboardButton(f"🎀 {search}", "dupe"),
+            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "dupe")       
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
-             InlineKeyboardButton(f'🔰 sᴇʀɪᴇs', 'sinfo'),
-             InlineKeyboardButton(f'🎁 ᴛɪᴘs', 'tinfo')
+             InlineKeyboardButton(f'Iɴꜰᴏ', 'reqinfo'),
+             InlineKeyboardButton(f'Mᴏᴠɪᴇ', 'minfo'),
+             InlineKeyboardButton(f'Sᴇʀɪᴇs', 'sinfo'),
+             InlineKeyboardButton(f'Tɪᴘs', 'tinfo')
          ]
     )
 
@@ -561,6 +562,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "sinfo":
         await query.answer("⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\nꜱᴇʀɪᴇꜱ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ\n⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n\nɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ ➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ\n\nᴇxᴀᴍᴘʟᴇ : ᴍᴏɴᴇʏ ʜᴇɪsᴛ S01E01\n\n🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)\n\n©Cinemathattakam_Group", show_alert=True)      
 
+    elif query.data == "rendering_info":
+        await query.answer(text=script.RENDERING_TXT, show_alert=True)
+    
+    elif query.data == "fmod":
+        await query.answer(text="𝙲𝚘𝚖𝚒𝚗𝚐 𝚜𝚘𝚘𝚗... 😊", show_alert=True)
+
     elif query.data == "tinfo":
         await query.answer("▣ ᴛɪᴘs ▣\n\n★ ᴛʏᴘᴇ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ (ɢᴏᴏɢʟᴇ)\n\n★ ɪғ ʏᴏᴜ ɴᴏᴛ ɢᴇᴛ ʏᴏᴜʀ ғɪʟᴇ ɪɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ᴛʜᴇɴ ᴛʜᴇ ɴᴇxᴛ sᴛᴇᴘ ɪs ᴄʟɪᴄᴋ ɴᴇxᴛ ʙᴜᴛᴛᴏɴ.\n\n★ ᴄᴏɴᴛɪɴᴜᴇ ᴛʜɪs ᴍᴇᴛʜᴏᴅ ᴛᴏ ɢᴇᴛᴛɪɴɢ ʏᴏᴜ ғɪʟᴇ\n\n\©Cinemathattakam_Group", show_alert=True)
 
@@ -584,7 +591,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "help2":
         buttons = [[
-            InlineKeyboardButton('• Mᴏʀᴇ Fᴇᴀᴛᴜʀᴇꜱ •', callback_data='help')  
+            InlineKeyboardButton('☫ Mᴏʀᴇ Fᴇᴀᴛᴜʀᴇꜱ ☫', callback_data='fmod')  
         ], [
             InlineKeyboardButton('Fɪʟᴛᴇʀs', callback_data='filters'),
             InlineKeyboardButton('Fɪʟᴇ Sᴛᴏʀᴇ', callback_data='store_file')
@@ -740,13 +747,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "SETTING_TXT":
+    elif query.data == "hset":
         buttons = [[
             InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='help2')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.CONNECTION_TXT,
+            text=script.SETTING_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -779,7 +786,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if query.from_user.id in ADMINS:
             await query.message.edit_text(text=script.ADMIN_TXT, reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
         else:
-            await query.answer("🤔 I ᴛʜɪɴᴋ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴍʏ ᴀᴅᴍɪɴ...\nSᴏ ᴛʜɪꜱ ᴄᴏᴍᴍᴇɴᴛ ɪꜱ ɴᴏᴛ Fᴏʀ ʏᴏᴜ🤗", show_alert=True)
+            await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\n🤔 ᴛʜɪɴᴋ ʏᴏᴜ. ᴀʀᴇ ʏᴏᴜ ɴᴏᴛ ᴍʏ ᴀᴅᴍɪɴ..?\nSᴏ ᴛʜɪꜱ ᴄᴏᴍᴍᴇɴᴛ ɪꜱ ɴᴏᴛ Fᴏʀ ʏᴏᴜ 🤗", show_alert=True)
     elif query.data == "song":
         buttons = [[
             InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='help')
@@ -1025,7 +1032,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "stats":
         buttons = [[
-            InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='help2'),
+            InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='about'),
             InlineKeyboardButton('↺ Rᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1044,7 +1051,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rfrsh":
         await query.answer("𝙁𝙚𝙩𝙘𝙝𝙞𝙣𝙜 𝙈𝙤𝙣𝙜𝙤𝘿𝙗 𝘿𝙖𝙩𝙖𝘽𝙖𝙨𝙚")
         buttons = [[
-            InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='help2'),
+            InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='about'),
             InlineKeyboardButton('↺ ʀᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1060,7 +1067,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-
          
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
@@ -1183,15 +1189,16 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
+            InlineKeyboardButton(f"🎀 {search}", "dupe"),
+            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "dupe")       
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
-             InlineKeyboardButton(f'🔰 sᴇʀɪᴇs', 'sinfo'),
-             InlineKeyboardButton(f'🎁 ᴛɪᴘs', 'tinfo')
+             InlineKeyboardButton(f'Iɴꜰᴏ', 'reqinfo'),
+             InlineKeyboardButton(f'Mᴏᴠɪᴇ', 'minfo'),
+             InlineKeyboardButton(f'Sᴇʀɪᴇs', 'sinfo'),
+             InlineKeyboardButton(f'Tɪᴘs', 'tinfo')
          ]
     )
 
