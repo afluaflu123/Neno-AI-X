@@ -1,10 +1,10 @@
 # Kanged From @TroJanZheX
+# REDIRECT added https://github.com/Joelkb
 import asyncio
 import re
 import ast
 import math
 import random
-import datetime
 lock = asyncio.Lock()
 
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
@@ -13,7 +13,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import ADMINS, AUTH_CHANNEL, FILE_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, NOR_IMG, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, SPELL_IMG, MSG_ALRT, FILE_FORWARD, MAIN_CHANNEL, LOG_CHANNEL, REQ_CHANNEL, MAIN_CHANNEL, S_GROUP
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, SPELL_IMG, MSG_ALRT, FILE_FORWARD, MAIN_CHANNEL, LOG_CHANNEL, REQ_CHANNEL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -60,7 +60,7 @@ async def fil_mod(client, message):
       else:
           await m.edit("𝚄𝚂𝙴 :- /autofilter on 𝙾𝚁 /autofilter off")
 
-@Client.on_message(filters.group & filters.text & filters.incoming) 
+@Client.on_message(filters.group | filters.private) 
 async def give_filter(client,message):
     await global_filters(client, message)
     group_id = message.chat.id
@@ -109,18 +109,6 @@ async def give_filter(client,message):
         else:
             await auto_filter(client, message)
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def pm_text(bot, message):
-    content = message.text
-    user = message.from_user.first_name
-    user_id = message.from_user.id
-    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    if user_id in ADMINS: return # ignore admins
-    await message.reply_text("<b>Yᴏᴜʀ ᴍᴇssᴀɢᴇ ʜᴀs ʙᴇᴇɴ sᴇɴᴛ ᴛᴏ ᴍʏ ᴍᴏᴅᴇʀᴀᴛᴏʀs !</b>")
-    await bot.send_message(
-        chat_id=LOG_CHANNEL,
-        text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>"
-    )
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -169,16 +157,15 @@ async def next_page(bot, query):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f"🎀 {search}", "dupe"),
-            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "dupe")       
+            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'ɪɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f'ᴍᴏᴠɪᴇ', 'minfo'),
-             InlineKeyboardButton(f'sᴇʀɪᴇs', 'sinfo'),
-             InlineKeyboardButton(f'ᴛɪᴘs', 'tinfo')
+             InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
+             InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
+             InlineKeyboardButton(f'🔰 sᴇʀɪᴇs', 'sinfo'),
+             InlineKeyboardButton(f'🎁 ᴛɪᴘs', 'tinfo')
          ]
     )
 
@@ -222,27 +209,25 @@ async def advantage_spoll_choker(bot, query):
     if not movies:
         return await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
+        return await query.answer(script.ALRT_TXT.format(query.from_user.first_name),show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movie = movies[(int(movie_))]
     await query.answer(script.TOP_ALRT_MSG)
-    gl = await global_filters(bot, query.message, text=movie)
-    if gl == False:
-        k = await manual_filters(bot, query.message, text=movie)
-        if k == False:
-            files, offset, total_results = await get_search_results(query.message.chat.id, movie, offset=0, filter=True)
-            if files:
-                k = (movie, files, offset, total_results)
-                await auto_filter(bot, query, k)
-            else:
-                reqstr1 = query.from_user.id if query.from_user else 0
-                reqstr = await bot.get_users(reqstr1)
-                if NO_RESULTS_MSG:
-                    await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
-                k = await query.message.edit(script.MVE_NT_FND)
-                await asyncio.sleep(10)
-                await k.delete()
+    k = await manual_filters(bot, query.message, text=movie)
+    if k == False:
+        files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
+        if files:
+            k = (movie, files, offset, total_results)
+            await auto_filter(bot, query, k)
+        else:
+            reqstr1 = query.from_user.id if query.from_user else 0
+            reqstr = await bot.get_users(reqstr1)
+            await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
+            k = await query.message.edit(script.MVE_NT_FND)
+            await asyncio.sleep(10)
+            await k.delete()
+
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -536,56 +521,44 @@ async def cb_handler(client: Client, query: CallbackQuery):
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            protect_content=True if ident == 'checksubp' else False,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                  InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=MAIN_CHANNEL),
-                  InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=S_GROUP)
-               ],[
-                  InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/creatorbeatz")
-                 ]
-                ]
-            )      
+            protect_content=True if ident == 'checksubp' else False
         )
+    elif query.data == "predvd":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting PreDVDs... Please wait...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'predvd',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('PreDVD File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Successfully deleted {deleted} PreDVD files.</b>")
+
+    elif query.data == "camrip":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting CamRips... Please wait...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'camrip',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('CamRip File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Successfully deleted {deleted} CamRip files.</b>")
+
     elif query.data == "pages":
         await query.answer()
-
-    elif query.data.startswith("send_fall"):
-        temp_var, ident, key, offset = query.data.split("#")
-        search = BUTTONS.get(key)
-        if not search:
-            await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name),show_alert=True)
-            return
-        files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=int(offset), filter=True)
-        await send_all(client, query.from_user.id, files, ident)
-        await query.answer(f"Hey {query.from_user.first_name}, All files on this page has been sent successfully to your PM !", show_alert=True)
-
-    elif query.data.startswith("killfilesdq"):
-        ident, keyword = query.data.split("#")
-        await query.message.edit_text(f"<b>Fetching Files for your query {keyword} on DB... Please wait...</b>")
-        files, total = await get_bad_files(keyword)
-        await query.message.edit_text(f"<b>Found {total} files for your query {keyword} !\n\nFile deletion process will start in 5 seconds !</b>")
-        await asyncio.sleep(5)
-        deleted = 0
-        async with lock:
-            try:
-                for file in files:
-                    file_ids = file.file_id
-                    file_name = file.file_name
-                    result = await Media.collection.delete_one({
-                        '_id': file_ids,
-                    })
-                    if result.deleted_count:
-                        logger.info(f'File Found for your query {keyword}! Successfully deleted {file_name} from database.')
-                    deleted += 1
-                    if deleted % 20 == 0:
-                        await query.message.edit_text(f"<b>Process started for deleting files from DB. Successfully deleted {str(deleted)} files from DB for your query {keyword} !\n\nPlease wait...</b>")
-            except Exception as e:
-                logger.exception(e)
-                await query.message.edit_text(f'Error: {e}')
-            else:
-                await query.message.edit_text(f"<b>Process Completed for file deletion !\n\nSuccessfully deleted {str(deleted)} files from database for your query {keyword}.</b>")
 
     elif query.data == "reqinfo":
         await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n©Cinemathattakam_Group", show_alert=True)
@@ -1177,16 +1150,15 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f"🎀 {search}", "dupe"),
-            InlineKeyboardButton(f"🗂️ Fɪʟᴇs: {len(files)}", "dupe")       
+            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'Iɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f'Mᴏᴠɪᴇ', 'minfo'),
-             InlineKeyboardButton(f'Sᴇʀɪᴇs', 'sinfo'),
-             InlineKeyboardButton(f'Tɪᴘs', 'tinfo')
+             InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
+             InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
+             InlineKeyboardButton(f'🔰 sᴇʀɪᴇs', 'sinfo'),
+             InlineKeyboardButton(f'🎁 ᴛɪᴘs', 'tinfo')
          ]
     )
 
@@ -1237,10 +1209,10 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>┏ 🔰 Tɪᴛɪʟᴇ : {search}\n┣ 🎭 Asᴋᴇᴅʙʏ : {message.from_user.mention}\n┣❤️‍🔥 Pᴏᴡᴇʀᴇᴅ ʙʏ : <a href='https://t.me/{temp.U_NAME}'>Mᴀsᴛᴇʀ​</a>\n┗🍁 Tᴏᴛᴀʟ Fɪʟᴇs : {len(files)}\n\n⚠️ Aꜰᴛᴇʀ 10 Mɪɴᴜᴛᴇꜱ Tʜɪꜱ Mᴇꜱꜱᴀɢᴇ Wɪʟʟ Bᴇ Aᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ Dᴇʟᴇᴛᴇᴅ\n\n♦️ Pᴏᴡᴇʀᴇᴅ ʙʏ : {message.chat.title}</b>"
+        cap = f"🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅʙʏ : {message.from_user.mention}\n┣⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href='https://t.me/{temp.U_NAME}'>ᴍᴀsᴛᴇʀ​</a>\n┗🍁 ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/CT_Arena'>ᴄinemathattakam​</a>\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\n★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : {message.chat.title}"
     if imdb and imdb.get('poster'):
         try:
-            pic_fi=await message.reply_photo(photo="https://telegra.ph/file/a35355b224548e197f989.jpg", caption=cap[:1024],
+            pic_fi=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
             try:
                 if settings['auto_delete']:
@@ -1258,7 +1230,7 @@ async def auto_filter(client, msg, spoll=False):
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            pic_fil=await message.reply_photo(photo="https://telegra.ph/file/a35355b224548e197f989.jpg", caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            pic_fil=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             try:
                 if settings['auto_delete']:
                     await asyncio.sleep(600)
@@ -1333,8 +1305,7 @@ async def advantage_spell_chok(client, msg):
         button = [[
                    InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
-        if NO_RESULTS_MSG:
-            await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await msg.reply_photo(
             photo=SPELL_IMG, 
             caption=script.I_CUDNT.format(mv_rqst),
