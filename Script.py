@@ -22,7 +22,7 @@ Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs.</b>"""
 ✯ Bᴏᴛ Sᴇʀᴠᴇʀ: <a href='https://heroku.com/'>Hᴇʀᴏᴋᴜ</a>
 ✯ Bᴜʟʟᴅ Sᴛᴀᴛᴜs: <code>ᴠ2.0.4 [ Bᴇᴛᴀ ].</code></b>"""
 
-        SOURCE_TXT = """<b>NOTE:
+    SOURCE_TXT = """<b>NOTE:
 ⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
 
 ◆ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : <a href='https://github.com/Joelkb/DQ-The-File-Donor'>ʜᴇʀᴇ</a>
