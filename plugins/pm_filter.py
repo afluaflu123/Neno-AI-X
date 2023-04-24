@@ -1022,6 +1022,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton ('⊝ Cᴏɴᴛᴀᴄᴛ', url="t.me/hacker_Jr")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        z=await query.message.reply_sticker("CAACAgIAAxkBAAL5bWRGqkY0REdxvvqj7IKlzEGMsx8gAAKhDgACCSi4St0mWT48xIq4HgQ")
+        await asyncio.sleep(3)
+        await z.delete()
         await query.message.edit_text(
             text=script.OWNER_INFO,
             reply_markup=reply_markup,
@@ -1041,7 +1044,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]   
         reply_markup = InlineKeyboardMarkup(buttons)
         z=await query.message.reply_sticker("CAACAgIAAxkBAALz22RGTjfOB-B9DBqd56KhwHZk4KflAAKwFAACF9rwS4uCoPCLdoXjHgQ")
-        await asyncio.sleep(2)
+        await asyncio.sleep(3)
         await z.delete()
         await query.message.edit_text(
             text=script.GROUP_INFO,
