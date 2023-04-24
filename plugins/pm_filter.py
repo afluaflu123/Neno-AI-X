@@ -695,6 +695,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇍ Bᴀᴄᴋ ⇏', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        z=await query.message.reply_sticker("CAACAgIAAxkBAALz2GRGTfptUbCu1xdPTCHXxdXO_k7_AALHFAACen34Sy_Kk6OUnOOgHgQ")
+        await asyncio.sleep(2)
+        await z.delete()
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
@@ -761,6 +764,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='help2')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        z=await query.message.reply_sticker("CAACAgIAAxkBAALz3mRGTn3uEW82YhE5YrH2s6t1zlqLAAI_FQACQrHxSwST7wABLlzE8R4E")
+        await asyncio.sleep(2)
+        await z.delete()
         await query.message.edit_text(
             text=script.RULE_TXT,
             reply_markup=reply_markup,
@@ -1034,6 +1040,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton("⇍ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇏", callback_data="start")
         ]]   
         reply_markup = InlineKeyboardMarkup(buttons)
+        z=await query.message.reply_sticker("CAACAgIAAxkBAALz22RGTjfOB-B9DBqd56KhwHZk4KflAAKwFAACF9rwS4uCoPCLdoXjHgQ")
+        await asyncio.sleep(2)
+        await z.delete()
         await query.message.edit_text(
             text=script.GROUP_INFO,
             reply_markup=reply_markup,
