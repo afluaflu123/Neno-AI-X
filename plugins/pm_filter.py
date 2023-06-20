@@ -1037,8 +1037,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton("• ɢʀᴏᴜᴘ 1 •", url="t.me/KL_GROUP1"),
             InlineKeyboardButton("• ɢʀᴏᴜᴘ 2 •", url="t.me/+vDXm_UHP_7JkYTVl")
                   ],[
-            InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟ •", url="t.me/+1WmzwCkH1m4zYTk1"),
-            InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟ •", url="t.me/+arAi7vU2iOc5ZTg1")
+            InlineKeyboardButton("🍿 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ 🍿", url="https://youtube.com/@MoviesTimeshorts")         
                   ],[
             InlineKeyboardButton("⇍ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇏", callback_data="start")
         ]]   
@@ -1295,8 +1294,7 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"┏⍞ Tɪᴛɪʟᴇ :{search}\n┣❐  Rᴇǫᴜᴇsᴛᴇᴅ Bʏ : {message.from_user.mention}\n┣⎙ Fɪʟᴇs : {total_results}\n┗〄 Gʀᴏᴜᴘ :  {message.chat.title}\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ."
     if imdb and imdb.get('poster'):
         try:
-            pic_fi=await message.reply_photo(photo='https://telegra.ph/file/a35355b224548e197f989.jpg', caption=cap[:1024],
-                                      reply_markup=InlineKeyboardMarkup(btn))
+            pic_fi=await message.reply_photo(photo='https://telegra.ph/file/a35355b224548e197f989.jpg', caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             try:
                 if settings['auto_delete']:
                     await asyncio.sleep(600)
