@@ -1025,12 +1025,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "owner_info":
         buttons = [[
             InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton ('⊝ Cᴏɴᴛᴀᴄᴛ', url="t.me/hacker_Jr")
+            InlineKeyboardButton ('𓄀 Cᴏɴᴛᴀᴄᴛ', url="t.me/hacker_Jr")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        z=await query.message.reply_sticker("CAACAgIAAxkBAAL5bWRGqkY0REdxvvqj7IKlzEGMsx8gAAKhDgACCSi4St0mWT48xIq4HgQ")
+        z=await query.message.reply_sticker("CAACAgIAAxkBAAEILpdkkzmoVVgmGKoGSJCieQNlhB36dwAC1AoAAuhO8Uh29Jn8lOf2ih4E")
         await asyncio.sleep(3)
         await z.delete()
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto("https://graph.org/file/a373d2be9a2476a9fc6a5.jpg")
+        )
         await query.message.edit_text(
             text=script.OWNER_INFO,
             reply_markup=reply_markup,
