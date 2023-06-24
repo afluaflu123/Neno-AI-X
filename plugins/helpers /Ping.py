@@ -12,5 +12,5 @@ async def ping(_, message):
     end_t = time.time()
     time_taken_s = (end_t - start_t) * 1000
     uptime = time.strftime("%HH %MM %SS", time.gmtime(time.time() - BOT_START_TIME))
-    await rm.edit(f"<b>✪ ʟɪᴠᴇ ᴘɪɴɢ sᴛᴀᴛᴜs ✪\n\n🏓 ᴘɪɴɢ : {time_taken_s:.3f} ms\n\n⏰ ᴜᴘᴛɪᴍᴇ : {uptime}\n\nㅤㅤ©️ Nᴀɴᴄʏ ~ ❁²·⁰</b>")
+    await rm.edit(f"<b>✪ ʟɪᴠᴇ ᴘɪɴɢ sᴛᴀᴛᴜs ✪\n\n🏓 ᴘɪɴɢ : {time_taken_s:.3f} ms\n\n⏰ ᴜᴘᴛɪᴍᴇ : {uptime}\n\nㅤ©️ Nᴀɴᴄʏ ~ ❁ ²·⁰</b>")
                   
