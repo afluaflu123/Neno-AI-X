@@ -20,7 +20,7 @@ Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs.</b>"""
 ✯ Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/'>Pʏᴛʜᴏɴ 3</a>
 ✯ Dᴀᴛᴀ Bᴀsᴇ: <a href='https://cloud.mongodb.com/'>Mᴏɴɢᴏ Dʙ</a>
 ✯ Bᴏᴛ Sᴇʀᴠᴇʀ (Pᴀɪᴅ): <a href='https://heroku.com/'>Hᴇʀᴏᴋᴜ</a>
-✯ Bᴜʟʟᴅ Sᴛᴀᴛᴜs: <code>ᴠ2.0.4 [ Bᴇᴛᴀ ].</code></b>"""
+✯ Bᴜʟʟᴅ Sᴛᴀᴛᴜs: <code>ᴠ2.0.4 [ Bᴇᴛᴀ ]</code></b>"""
 
     SOURCE_TXT = """<b>NOTE:
 ⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
@@ -90,6 +90,8 @@ noтe
 
 coммand and υѕeѕ
 • /settings - ᴄʜᴀɴɢᴇ sᴇᴛᴛɪɴɢs ᴀs ʏᴏᴜʀ ᴡɪsʜ</b>"""
+
+    REPRT_MSG = """ Reported To Admin"""
 
     RULE_TXT = """
 <b>♨️ 𝗚𝗥𝗢𝗨𝗣 𝗥𝗨𝗟𝗘𝗦 ♨️
