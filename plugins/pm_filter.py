@@ -611,7 +611,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "help2":
         buttons = [[
-            InlineKeyboardButton('☫ Mᴏʀᴇ Fᴇᴀᴛᴜʀᴇꜱ ☫', callback_data='fmod')  
+            InlineKeyboardButton('☫ Mᴏʀᴇ Fᴇᴀᴛᴜʀᴇꜱ ☫', callback_data='help3')  
         ], [
             InlineKeyboardButton('Fɪʟᴛᴇʀs', callback_data='filters'),
             InlineKeyboardButton('Fɪʟᴇ Sᴛᴏʀᴇ', callback_data='store_file')
@@ -645,27 +645,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "help3":
-        buttons = [[
-             InlineKeyboardButton('♪ ᴀᴜᴅɪᴏʙᴏᴏᴋ ♪', callback_data='abook'),
-             InlineKeyboardButton('☫ ᴄᴏᴜɴᴛʀʏ ☫', callback_data='country'),
-             InlineKeyboardButton('✠ ᴄᴀʀʙᴏɴ ✠', callback_data='carb')    
-         ], [
-             InlineKeyboardButton('☻ ᴘɪɴɢ ☻', callback_data='pings'),
-             InlineKeyboardButton('◂ ᴊsᴏɴᴇ ▸', callback_data='json'),
-             InlineKeyboardButton('❆ sᴛɪᴄᴋɪᴅ ❆', callback_data='sticker')
-         ], [
-             InlineKeyboardButton('♤ ᴡʜᴏɪs ♤', callback_data='whois'),
-             InlineKeyboardButton('☮ ᴜʀʟsʜᴏʀᴛ ☮', callback_data='urlshort'),
-             InlineKeyboardButton('✎ ɢᴛʀᴀɴs ✎', callback_data='gtrans')
-         ], [
-            InlineKeyboardButton('♬ sᴏɴɢ ♬', callback_data='song'),
-            InlineKeyboardButton('☼ ᴛᴛs ☼', callback_data='tts'),  
-            InlineKeyboardButton('⇜ ᴛɢʀᴀᴘʜ ⇝', callback_data='tele')     
-         ], [
-            InlineKeyboardButton('◀ ᴠɪᴅᴇᴏ ▶', callback_data='video'),
-            InlineKeyboardButton('〄 ғᴏɴᴛ 〄', callback_data='font'),
-            InlineKeyboardButton('⊝ ᴅᴇᴘʟᴏʏ ⊝', callback_data='deploy')
-         ], [ 
+        buttons = [[             
+             InlineKeyboardButton('☻ ᴘɪɴɢ sᴛᴀᴛᴜs ☻', callback_data='pings')
+          ],[
+             InlineKeyboardButton('❆ sᴛɪᴄᴋᴇʀ ɪᴅ ❆', callback_data='sticker')
+          ],[                        
+            InlineKeyboardButton('⇜ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ ⇝', callback_data='tele')     
+          ],[            
             InlineKeyboardButton('↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ​↭', callback_data='help2')
          ]]
         reply_markup = InlineKeyboardMarkup(buttons)
