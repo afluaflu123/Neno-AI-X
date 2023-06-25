@@ -404,7 +404,8 @@ Name - {}
     
 • Fᴜʟʟ Nᴀᴍᴇ : • HᴀᴄKᴇʀ Jʀ ~ 🕊 •
 • Uꜱᴇʀɴᴀᴍᴇ : @Hacker_Jr
-• Pᴇʀᴍᴀɴᴇɴᴛ Dᴍ Lɪɴᴋ : <a href='t.me/Hacker_Jr'>• HᴀᴄKᴇʀ Jʀ ~ 🕊 •</a></b>"""
+• Pᴇʀᴍᴀɴᴇɴᴛ Dᴍ Lɪɴᴋ : <a href='t.me/Hacker_Jr'>• HᴀᴄKᴇʀ Jʀ ~ 🕊 •</a>
+• Lᴏɢᴏ Cʜᴀɴɴᴇʟ : <a href='t.me/Premium_logo_Pro'>Pʀᴇᴍɪᴜᴍ Lᴏɢᴏ Pʀᴏ 🃏</a></b>"""
 
     GROUP_INFO = """
 <b>⍟ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛᴇᴀᴍ ᴋʟ ʟɪɴᴋs ⍟</b>
