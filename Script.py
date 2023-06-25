@@ -185,15 +185,16 @@ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀɴɴᴇʟs Aɴᴅ Gʀᴏᴜᴘs Mᴇ Tᴏ Aᴅ
 
 Jᴏɪɴ Rᴇǫᴜᴇsᴛs Aᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ. 😍</b>"""
 
-    TELE_TXT = """<b>▫️HELP: Telegraph▪️</b>
-Do as you wish with telegra.ph module!
+    TELE_TXT = """<b>• ʜᴇʟᴘ : ᴛᴇʟᴇɢʀᴀᴘʜ
 
-</b>USAGE:</b>
-✒️ /telegraph - Send me Picture or Vide Under (5MB)
+ᴅᴏ ᴀs ʏᴏᴜ ᴡɪsʜ ᴡɪᴛʜ ᴛᴇʟᴇɢʀᴀ.ᴘʜ ᴍᴏᴅᴜʟᴇ!
 
-<b>NOTE:</b>
-• This Command Is Available in goups and pms
-• This Command Can be used by everyone"""
+• ᴜsᴀɢᴇ :
+✒️ /telegraph - sᴇɴᴅ ᴍᴇ ᴘɪᴄᴛᴜʀᴇ ᴏʀ ᴠɪᴅᴇ ᴜɴᴅᴇʀ (5ᴍʙ)
+
+• ɴᴏᴛᴇ :
+• ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ɢᴏᴜᴘs ᴀɴᴅ ᴘᴍs
+• ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ʙʏ ᴇᴠᴇʀʏᴏɴᴇ</b>"""
 
     CORONA_TXT = """➤ 𝐇𝐞𝐥𝐩: 𝖢𝗈𝗏𝗂𝖽
 𝚃𝚑𝚒𝚜 𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝚑𝚎𝚕𝚙𝚜 𝚢𝚘𝚞 𝚝𝚘 𝚔𝚗𝚘𝚠 𝚍𝚊𝚒𝚕𝚢 𝚒𝚗𝚏𝚘𝚛𝚖𝚊𝚝𝚒𝚘𝚗 𝚊𝚋𝚘𝚞𝚝 𝚌𝚘𝚟𝚒𝚍 
@@ -211,22 +212,21 @@ Do as you wish with telegra.ph module!
 
     DEPLOY_TXT= """𝙸𝙵 𝚈𝙾𝚄 𝙵𝙰𝙲𝙸𝙽𝙶 𝙰𝙽𝚈 𝙸𝚂𝚂𝚄𝙴 𝙸𝙽 𝚃𝙷𝙴 𝚁𝙴𝙿𝙾 𝙲𝙾𝙽𝚃𝙰𝙲𝚃 𝙼𝙴..."""
    
-    PINGS_TXT = """<b>Ping Testing:</b>
-Helps you to know your ping 🚶🏼‍♂️
+    PINGS_TXT = """<b>ᴘɪɴɢ ᴛᴇsᴛɪɴɢ : ʜᴇʟᴘs ʏᴏᴜ ᴛᴏ ᴋɴᴏᴡ ʏᴏᴜʀ ᴘɪɴɢ 🚶🏼‍♂️
 
+ᴄᴏᴍᴍᴀɴᴅs:
+• /ping - ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴘɪɴɢ.
 
-<b>Commands:</b>
-• /ping - <b>To get your ping.</b>
-
-<b>🛠️Usage🛠️ :</b>
-• This commands can be used in pm and groups
-• This commands can be used buy everyone in the groups and bots pm
-• Share us for more features"""
+🛠️ ᴜsᴀɢᴇ 🛠️ :
+• ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ɪɴ ᴘᴍ ᴀɴᴅ ɢʀᴏᴜᴘs
+• ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ʙᴜʏ ᴇᴠᴇʀʏᴏɴᴇ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘs ᴀɴᴅ ʙᴏᴛs ᴘᴍ
+• sʜᴀʀᴇ ᴜs ꜰᴏʀ ᴍᴏʀᴇ ꜰᴇᴀᴛᴜʀᴇs</b>"""
  
-    STICKER_TXT = """<b>ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ᴛʜɪꜱ ᴍᴏᴅᴜʟᴇ ᴛᴏ ꜰɪɴᴅᴀɴʏ ꜱᴛɪᴄᴋᴇʀꜱ ɪᴅ.</b>
+    STICKER_TXT = """<b>ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ᴛʜɪꜱ ᴍᴏᴅᴜʟᴇ ᴛᴏ ꜰɪɴᴅᴀɴʏ ꜱᴛɪᴄᴋᴇʀꜱ ɪᴅ.
     
-• ᴜꜱᴀɢᴇ : ᴛᴏ ɢᴇᴛ ꜱᴛɪᴄᴋᴇʀ
-◉ ʜᴏᴡ ᴛᴏ ᴜꜱᴇ : ʀᴇᴘʟʏ ᴛɪ ᴀɴʏ sᴛɪᴄᴋᴇʀ /stickerid"""
+ᴄᴏᴍᴍᴀɴᴅs:    
+◉ ᴜꜱᴀɢᴇ : ᴛᴏ ɢᴇᴛ ꜱᴛɪᴄᴋᴇʀ
+◉ ʜᴏᴡ ᴛᴏ ᴜꜱᴇ : ʀᴇᴘʟʏ ᴛɪ ᴀɴʏ sᴛɪᴄᴋᴇʀ /stickerid</b>"""
 
     FONT_TXT= """⚙️ 𝐔𝐒𝐀𝐆𝐄
 
