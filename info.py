@@ -51,7 +51,7 @@ CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 PICS = (environ.get('PICS', 'https://telegra.ph/file/35fc08358edc12cc1e21e.jpg')).split()
 NOR_IMG = environ.get('NOR_IMG', 'https://telegra.ph/file/c27901b78e7c1b95740d6.jpg')
-SPELL_IMG = environ.get('SPELL_IMG',"https://telegra.ph/file/2581860836bb79b97d6d1.jpg")
+SPELL_IMG = environ.get('SPELL_IMG',"https://graph.org/file/cd9d7825d4c11195c19df.jpg")
 
 # Welcome area
 MELCOW_IMG = environ.get('MELCOW_IMG',"https://telegra.ph/file/4cd231fbe9085ec49e75d.jpg")
