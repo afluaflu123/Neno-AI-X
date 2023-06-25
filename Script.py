@@ -89,9 +89,7 @@ noтe
 2. ɪᴛ ᴡᴏʀᴋs ᴏɴʟʏ ᴡʜᴇɴ ʏᴏᴜ ᴀʟʀᴇᴀᴅʏ ᴄᴏɴɴᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
 
 coммand and υѕeѕ
-• /settings - ᴄʜᴀɴɢᴇ sᴇᴛᴛɪɴɢs ᴀs ʏᴏᴜʀ ᴡɪsʜ</b>"""
-
-    REPRT_MSG = """ Reported To Admin"""
+• /settings - ᴄʜᴀɴɢᴇ sᴇᴛᴛɪɴɢs ᴀs ʏᴏᴜʀ ᴡɪsʜ</b>"""  
 
     RULE_TXT = """
 <b>♨️ 𝗚𝗥𝗢𝗨𝗣 𝗥𝗨𝗟𝗘𝗦 ♨️
@@ -133,7 +131,7 @@ coммand and υѕeѕ
     EXTRAMOD_TXT = """Help: <b>Extra Modules</b>
 
 <b>NOTE:</b>
-these are the extra features of Elsa
+these re the extra features of Elsa
 
 <b>Commands and Usage:</b>
 • /id - <code>get id of a specified user.</code>
@@ -379,7 +377,9 @@ Name - {}
 
     TOP_ALRT_MSG = """♻️ ᴄʜᴇᴄᴋɪɴɢ ꜰɪʟᴇ ᴏɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ... ♻️"""
 
-    MVE_NT_FND = """<b>𝚃𝙷𝙸𝚂 𝙼𝙾𝚅𝙸𝙴 I𝚂 𝙽𝙾𝚃 𝚈𝙴𝚃 𝚁𝙴𝙻𝙴𝙰𝚂𝙴𝙳 𝙾𝚁 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝙳𝙰𝚃𝚂𝙱𝙰𝚂𝙴</b> """
+    MVE_NT_FND = """<b>ᴛʜɪs ᴍᴏᴠɪᴇ ɪs ɴᴏᴛ ʏᴇᴛ ʀᴇʟᴇᴀsᴇᴅ ᴏʀ ᴀᴅᴅᴇᴅ ᴛᴏ ᴅᴀᴛsʙᴀsᴇ.
+
+ɪꜰ ʏᴏᴜ ᴀsᴋ ꜰᴏʀ ᴀ ᴍᴏᴠɪᴇ ʀᴇʟᴇᴀsᴇᴅ ɪɴ ᴛʜᴇᴀᴛᴇʀs, ʏᴏᴜ ᴡɪʟʟ ɴᴏᴛ ɢᴇᴛ ɪᴛ, ᴍᴏᴠɪᴇ ɪs ᴏɴʟʏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴡʜᴇɴ ᴏᴛᴛ ᴅᴠᴅ ɪs ʀᴇʟᴇᴀsᴇᴅ.</b> """
 
     NORSLTS = """★ #𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀 ★
 𝗜𝗗 <b>: {}</b>
