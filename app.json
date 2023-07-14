@@ -1,5 +1,5 @@
 {
-    "name": "Elsa Bot",
+    "name": "Nancy Bot",
     "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
     "logo": "https://telegra.ph/file/d9f242d81ef69cc8a1ec5.jpg",
     "stack": "container",
@@ -16,8 +16,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/Devil-Botz/Elsa",
-    "repository": "https://github.com/Devil-Botz/Elsa",
+    "website": "https://github.com/afluaflu123/K-bot",
+    "repository": "https://github.com/afluaflu123/K-bot",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
