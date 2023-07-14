@@ -72,9 +72,6 @@
             "description": "File REDIRECT TO , give Channel id for redirect file eg:-100xxxxxxx.",
             "required": true
         },
-        "FILE_CHANNEL": {
-            "description": "File REDIRECT TO , give Channel id for redirect file eg:-100xxxxxxx.",
-        },
         "DELETE_CHANNELS": {
              "description": "Delete Multiple files from db, channel id -100xxxxxxxx.",
              "required": true
