@@ -3,8 +3,6 @@ import os
 from os import environ
 from pyrogram import enums
 from Script import script
-from dotenv import load_dotenv
-
 import asyncio
 import json
 from collections import defaultdict
