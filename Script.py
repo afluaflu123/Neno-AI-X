@@ -4,6 +4,7 @@ class script(object):
 ᴛʜɪs ɪs ᴀ ᴘʀᴏ ᴍᴏᴠɪᴇs ᴀᴜᴛᴏꜰɪʟᴛᴇʀ-ʙᴏᴛ ᴡɪᴛʜ 4ɢʙ+ ᴍᴇᴅɪᴀ ꜰɪʟᴇs sᴜᴘᴘᴏʀᴛ.
 
 ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴ.</b>"""
+    
     HELP_TXT = """<b>Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴇxᴛʀᴀ ғᴇᴀᴛᴜʀᴇs.</b>"""
 
     HELPER_TXT = """<b>Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs.</b>"""
@@ -356,12 +357,12 @@ Name - {}
 
 💌 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 👇
 
-<a href='https://t.me/+E94ZntMiS6djMjc1'>Kʟ Gʀᴏᴜᴘ ~ 1</a> | <a href='https://t.me/+92rpvdGlJqFkNGI1'>Kʟ Gʀᴏᴜᴘ ~ 2</a></b>"""
+◉ <a href='https://t.me/+E94ZntMiS6djMjc1'>Kʟ Gʀᴏᴜᴘ ~ 1</a> ◉ <a href='https://t.me/+92rpvdGlJqFkNGI1'>Kʟ Gʀᴏᴜᴘ ~ 2</a></b>"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
 📅 Dᴀᴛᴇ : <code>{}</code>
-⏰Tɪᴍᴇ : <code>{}</code>
+⏰ Tɪᴍᴇ : <code>{}</code>
 🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code></b>"""
 
     MELCOW_G = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️"""
