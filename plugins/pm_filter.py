@@ -697,7 +697,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         z=await query.message.reply_sticker("CAACAgIAAxkBAALz2GRGTfptUbCu1xdPTCHXxdXO_k7_AALHFAACen34Sy_Kk6OUnOOgHgQ")
-        await asyncio.sleep(2)
+        await asyncio.sleep(1)
         await z.delete()
         await client.edit_message_media(
             query.message.chat.id, 
@@ -1024,7 +1024,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         z=await query.message.reply_sticker("CAACAgIAAxkBAAEIOahkmBAg-KAc3pFd0RkXYI-L6KIt5AAC1AoAAuhO8Uh29Jn8lOf2ih4E")
-        await asyncio.sleep(3)
+        await asyncio.sleep(2)
         await z.delete()
         await client.edit_message_media(
             query.message.chat.id, 
@@ -1038,18 +1038,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "group_info":
         buttons = [[
-            InlineKeyboardButton("🍿 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ 🍿", url="https://youtube.com/@MoviesTimeshorts")         
+            InlineKeyboardButton("🍿 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ 🍿", url="https://www.youtube.com/@FoxMoviesHub")         
                   ],[
             InlineKeyboardButton("• ᴛᴇᴀᴍ ᴋʟ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ •", url="t.me/team_kl")
                   ],[
-            InlineKeyboardButton("• ɢʀᴏᴜᴘ 1 •", url="t.me/KL_GROUP1"),
-            InlineKeyboardButton("• ɢʀᴏᴜᴘ 2 •", url="t.me/+vDXm_UHP_7JkYTVl")
+            InlineKeyboardButton("• ɢʀᴏᴜᴘ 1 •", url="t.me/+E94ZntMiS6djMjc1"),
+            InlineKeyboardButton("• ɢʀᴏᴜᴘ 2 •", url="t.me/+92rpvdGlJqFkNGI1")
                   ],[           
             InlineKeyboardButton("⇍ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇏", callback_data="start")
         ]]   
         reply_markup = InlineKeyboardMarkup(buttons)
-        z=await query.message.reply_sticker("CAACAgIAAxkBAALz22RGTjfOB-B9DBqd56KhwHZk4KflAAKwFAACF9rwS4uCoPCLdoXjHgQ")
-        await asyncio.sleep(3)
+        z=await query.message.reply_sticker("CAACAgIAAxkBAAE5t0xk04cCxxuplgABSh6pwI6IFq5WFowAAq0MAALxlEFIoXA8v_of0-keBA")
+        await asyncio.sleep(2)
         await z.delete()
         await client.edit_message_media(
             query.message.chat.id, 
