@@ -57,8 +57,8 @@ async def start(client, message):
             InlineKeyboardButton('🥇 ᴛᴇᴀᴍ ᴋʟ ᴏꜰꜰɪᴄɪᴀʟ ʟɪɴᴋs 🥇', callback_data="group_info")
         ]]         
         reply_markup = InlineKeyboardMarkup(buttons)
-        m=await message.reply_sticker("CAACAgIAAxkBAAEC4pZkQmINNqk5Avpl4u_xlVxCTWhxWgACeBUAAj6X8UudmY8EHNwIXx4E") 
-        await asyncio.sleep(5)
+        m=await message.reply_sticker("CAACAgIAAxkBAAE5teNk03mdcUwZgk5r0t7O_axeVvG_-wACJAwAAviQOEiWAywHzwABlxgeBA") 
+        await asyncio.sleep(4)
         await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
