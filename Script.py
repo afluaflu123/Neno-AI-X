@@ -4,22 +4,18 @@ class script(object):
 ᴛʜɪs ɪs ᴀ ᴘʀᴏ ᴍᴏᴠɪᴇs ᴀᴜᴛᴏꜰɪʟᴛᴇʀ-ʙᴏᴛ ᴡɪᴛʜ 4ɢʙ+ ᴍᴇᴅɪᴀ ꜰɪʟᴇs sᴜᴘᴘᴏʀᴛ.
 
 ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴ.</b>"""
-    HELP_TXT = """<b>ʜᴇʏ {}
+    HELP_TXT = """<b>Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴇxᴛʀᴀ ғᴇᴀᴛᴜʀᴇs.</b>"""
 
-Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴇxᴛʀᴀ ғᴇᴀᴛᴜʀᴇs.</b>"""
-
-    HELPER_TXT = """<b>ʜᴇʏ {}
-
-Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs.</b>"""
+    HELPER_TXT = """<b>Hᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ꜰᴏʀ ᴍʏ ᴄᴏᴍᴍᴀɴᴅs.</b>"""
 
 # ⚠️ Please don't change our credits 𝚃𝙷𝙰𝙽𝙺𝚂 𝚃𝙾 & 𝙳𝙴𝚅 👇🏻
 
-    ABOUT_TXT = """<b>✯ Mʏ Nᴀᴍᴇ : <a href='https://t.me/Oru_adaar_Robot'>Nᴀɴᴄʏ ~ 🎀</a>
-✯ Cʀᴇᴀᴛᴏʀ: <a href='https://t.me/Hacker_Jr'>HᴀᴄKᴇʀ Jʀ ~ 🕊</a>
+    ABOUT_TXT = """<b>✯ Mʏ Nᴀᴍᴇ : <a href='https://t.me/Oru_adaar_Robot'>Nᴀɴᴄʏ ²·⁰</a>
+✯ Cʀᴇᴀᴛᴏʀ: <a href='https://t.me/Hacker_Jr'>×͜× HᴀᴄKᴇʀ Jʀ 〆⁪⁬⁮⁮⁮</a>
 ✯ Lɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʀᴏɢʀᴀᴍ</a>
 ✯ Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/'>Pʏᴛʜᴏɴ 3</a>
 ✯ Dᴀᴛᴀ Bᴀsᴇ: <a href='https://cloud.mongodb.com/'>Mᴏɴɢᴏ Dʙ</a>
-✯ Bᴏᴛ Sᴇʀᴠᴇʀ (Pᴀɪᴅ): <a href='https://heroku.com/'>Hᴇʀᴏᴋᴜ</a>
+✯ Bᴏᴛ Sᴇʀᴠᴇʀ: <a href='https://heroku.com/'>Hᴇʀᴏᴋᴜ</a>
 ✯ Bᴜʟʟᴅ Sᴛᴀᴛᴜs: <code>ᴠ2.0.4 [ Bᴇᴛᴀ ]</code></b>"""
 
     SOURCE_TXT = """<b>NOTE:
@@ -339,9 +335,9 @@ Name - {}
     SUR_TXT = """
 <b>👋 ʜᴇʏ {},
 
-ɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ + ᴍᴀɴᴜᴀʟꜰɪʟᴛᴇʀ + ꜰɪʟᴇsᴛᴏʀᴇ ʙᴏᴛ.ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ !!
+ɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ + ᴍᴀɴᴜᴀʟꜰɪʟᴛᴇʀ + ꜰɪʟᴇsᴛᴏʀᴇ ʙᴏᴛ.
 
-🌿 ᴍᴀɴᴛᴀɪɴᴇᴅ ʙʏ  : <a href='https://t.me/hacker_Jr'>• HᴀᴄKᴇʀ Jʀ ~ ×͜× •</a></b>"""
+ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ !!</b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>⍞ TɪᴛLᴇ : {title}
@@ -360,7 +356,7 @@ Name - {}
 
 💌 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 👇
 
-◉ <a href='https://t.me/+E94ZntMiS6djMjc1'>Kʟ Gʀᴏᴜᴘ ~ 1</a> | ◉ <a href='https://t.me/+92rpvdGlJqFkNGI1'>Kʟ Gʀᴏᴜᴘ ~ 2</a></b>"""
+<a href='https://t.me/+E94ZntMiS6djMjc1'>Kʟ Gʀᴏᴜᴘ ~ 1</a> | <a href='https://t.me/+92rpvdGlJqFkNGI1'>Kʟ Gʀᴏᴜᴘ ~ 2</a></b>"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
@@ -368,7 +364,7 @@ Name - {}
 ⏰Tɪᴍᴇ : <code>{}</code>
 🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code></b>"""
 
-    MELCOW_ENG = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️"""
+    MELCOW_G = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️"""
 
     ALRT_TXT = """⚠️ 𝖧ᴇʏ !
     
