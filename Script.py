@@ -349,20 +349,22 @@ Name - {}
 ✵ QᴜAʟIᴛY : HDRip,WEB-DL
 〄 GʀOᴜP : {message.chat.title}</b>"""
 
-    CUSTOM_FILE_CAPTION = """<b>📂 Fɪʟᴇ Nᴀᴍᴇ :- <code>{file_name}</code>
+    CUSTOM_FILE_CAPTION = """<b>🗂️ Fɪʟᴇ Nᴀᴍᴇ :- <code>{file_name}</code>
 
-🧲 Fɪʟᴇ Sɪᴢᴇ :- {file_size}
+♀️ Fɪʟᴇ Sɪᴢᴇ :- {file_size}
 
 💥 ᴄʜᴀɴɴᴇʟ :- @Team_KL
 
-💌 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 👇
+ 🍿 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 🍿
 
-◉ <a href='https://t.me/+E94ZntMiS6djMjc1'>Kʟ Gʀᴏᴜᴘ ~ 1</a> ◉ <a href='https://t.me/+92rpvdGlJqFkNGI1'>Kʟ Gʀᴏᴜᴘ ~ 2</a></b>"""
+@KLMovieGroup | @KL_Group2</b>"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
 📅 Dᴀᴛᴇ : <code>{}</code>
+
 ⏰ Tɪᴍᴇ : <code>{}</code>
+
 🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code></b>"""
 
     MELCOW_G = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️"""
