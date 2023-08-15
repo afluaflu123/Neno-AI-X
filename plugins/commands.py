@@ -136,8 +136,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-                          InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+                          InlineKeyboardButton("💌 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ 💌", url="https://www.youtube.com/@FoxMoviesHub")
                        ],[
                           InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
                          ]
@@ -155,8 +154,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-                          InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+                          InlineKeyboardButton("💌 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ 💌", url="https://www.youtube.com/@FoxMoviesHub")                          
                        ],[
                           InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
                          ]
@@ -226,8 +224,7 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                      [
-                      InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-                      InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+                      InlineKeyboardButton("💌 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ 💌", url="https://www.youtube.com/@FoxMoviesHub")
                    ],[
                       InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
                      ]
@@ -269,8 +266,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton('🎭 Gʀᴏᴜᴘ', url=S_GROUP),
-              InlineKeyboardButton('📣 Cʜᴀɴɴᴇʟ', url=MAIN_CHANNEL)
+              InlineKeyboardButton("💌 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ 💌", url="https://www.youtube.com/@FoxMoviesHub")
            ],[
               InlineKeyboardButton('⚠️ Dᴇʟᴇᴛᴇ Fɪʟᴇ ⚠️', callback_data='close_data')
              ]
